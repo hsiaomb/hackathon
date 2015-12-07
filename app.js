@@ -41,7 +41,6 @@ app.get('/:width/:height', function (req, res){
     .stream(function streamOut (err, stdout, stderr) {
       if (err) return next(err);
       stdout.pipe(res);
-      stdout.on('error', next);
   });
 
 });
