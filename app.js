@@ -113,7 +113,7 @@ app.get('/:width/:height/:effect', function (req, res){
 	      if (err) return next(err);
 	      stdout.pipe(res);
 	  });
-} else if (effect === 'default'){
+} else {
 	res.redirect('/' + width + '/' + height)
 }
 
@@ -134,8 +134,17 @@ app.post('/face', function(req, res){
       }
     })
 
+  if () {
+    req.Validator.getErrors(function(errors){
+      console.log(errors)
+    });
+  }
+  else {
+    res.redirect('/' + req.body.width + '/' + req.body.height + '/' + req.body.effect)
+  }
 
-	res.redirect('/' + req.body.width + '/' + req.body.height + '/' + req.body.effect)
+
+
 });
 
 app.listen(process.env.PORT || 3000 )
