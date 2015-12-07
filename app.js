@@ -62,59 +62,99 @@ app.get('/:width/:height/:effect', function (req, res){
 	var randomImage = allImages[Math.floor(Math.random()*allImages.length)];
 
   res.set('Content-Type', 'image/jpeg');
-  if(effect === 'blur'){
-	gm(randomImage)
-    .resize(width, height, '^')
-    .gravity('Center')
-    .crop(width, height)
-    .blur(30,5)
-    .stream(function streamOut (err, stdout, stderr) {
-      if (err) return next(err);
-      stdout.pipe(res);
-  });
- } else if (effect === 'pinkify'){
- 		gm(randomImage)
- 	    .resize(width, height, '^')
- 	    .gravity('Center')
- 	    .crop(width, height)
- 	    .colorize(112, 66, 20)
- 	    .stream(function streamOut (err, stdout, stderr) {
- 	      if (err) return next(err);
- 	      stdout.pipe(res);
- 	  });
- } else if (effect === 'sepia'){
- 		gm(randomImage)
- 	    .resize(width, height, '^')
- 	    .gravity('Center')
- 	    .crop(width, height)
- 	    .sepia()
- 	    .stream(function streamOut (err, stdout, stderr) {
- 	      if (err) return next(err);
- 	      stdout.pipe(res);
- 	  });
- } else if (effect === 'negative'){
- 	gm(randomImage)
-     .resize(width, height, '^')
-     .gravity('Center')
-     .crop(width, height)
-     .negative()
-     .stream(function streamOut (err, stdout, stderr) {
-       if (err) return next(err);
-       stdout.pipe(res);
-   });
-} else if (effect === 'implode'){
-		gm(randomImage)
-	    .resize(width, height, '^')
-	    .gravity('Center')
-	    .crop(width, height)
-	    .implode(0.5)
-	    .stream(function streamOut (err, stdout, stderr) {
-	      if (err) return next(err);
-	      stdout.pipe(res);
-	  });
-} else if (effect === 'default'){
-	res.redirect('/' + width + '/' + height)
-}
+
+  switch(expression) {
+      case n:
+          code block
+          break;
+      case n:
+          code block
+          break;
+      default:
+          default res.redirect('/' + width + '/' + height)
+  }
+
+  switch(effect) {
+    case 'blur':
+      gm(randomImage)
+        .resize(width, height, '^')
+        .gravity('Center')
+        .crop(width, height)
+        .blur(30,5)
+        .stream(function streamOut (err, stdout, stderr) {
+          if (err) return next(err);
+          stdout.pipe(res);
+        });
+      break;
+    case 'pinkify':
+      gm(randomImage)
+        .resize(width, height, '^')
+        .gravity('Center')
+        .crop(width, height)
+        .colorize(112, 66, 20)
+        .stream(function streamOut (err, stdout, stderr) {
+          if (err) return next(err);
+          stdout.pipe(res);
+      });
+      break
+    default:
+        default res.redirect('/' + width + '/' + height)
+  }
+
+
+//   if(effect === 'blur'){
+// 	gm(randomImage)
+//     .resize(width, height, '^')
+//     .gravity('Center')
+//     .crop(width, height)
+//     .blur(30,5)
+//     .stream(function streamOut (err, stdout, stderr) {
+//       if (err) return next(err);
+//       stdout.pipe(res);
+//     });
+//  } else if (effect === 'pinkify'){
+//  		gm(randomImage)
+//  	    .resize(width, height, '^')
+//  	    .gravity('Center')
+//  	    .crop(width, height)
+//  	    .colorize(112, 66, 20)
+//  	    .stream(function streamOut (err, stdout, stderr) {
+//  	      if (err) return next(err);
+//  	      stdout.pipe(res);
+//  	  });
+//  } else if (effect === 'sepia'){
+//  		gm(randomImage)
+//  	    .resize(width, height, '^')
+//  	    .gravity('Center')
+//  	    .crop(width, height)
+//  	    .sepia()
+//  	    .stream(function streamOut (err, stdout, stderr) {
+//  	      if (err) return next(err);
+//  	      stdout.pipe(res);
+//  	  });
+//  } else if (effect === 'negative'){
+//  	gm(randomImage)
+//      .resize(width, height, '^')
+//      .gravity('Center')
+//      .crop(width, height)
+//      .negative()
+//      .stream(function streamOut (err, stdout, stderr) {
+//        if (err) return next(err);
+//        stdout.pipe(res);
+//    });
+// } else if (effect === 'implode'){
+// 		gm(randomImage)
+// 	    .resize(width, height, '^')
+// 	    .gravity('Center')
+// 	    .crop(width, height)
+// 	    .implode(0.5)
+// 	    .stream(function streamOut (err, stdout, stderr) {
+// 	      if (err) return next(err);
+// 	      stdout.pipe(res);
+// 	  });
+// } else if (effect === 'default'){
+// 	res.redirect('/' + width + '/' + height)
+// }
 
 });
 
