@@ -39,14 +39,12 @@ app.get('/:width/:height', function (req, res){
 	gm(randomImage)
     .resize(width, height, '^')
     .gravity('Center')
-    .crop(width, height )
+    .crop(width, height)
     .stream(function streamOut (err, stdout, stderr) {
       if (err) return next(err);
       stdout.pipe(res);
   });
 
 });
-
-
 
 app.listen(process.env.PORT || 3000 )
