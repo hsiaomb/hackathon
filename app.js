@@ -34,6 +34,8 @@ app.get('/:width/:height', function (req, res){
 
 	var randomImage = allImages[Math.floor(Math.random()*allImages.length)];
 
+  res.set('Content-Type', 'image/jpeg');
+
 	gm('./css/images/img-1.jpg')
     .resize(50,50)
     .stream(function streamOut (err, stdout, stderr) {
