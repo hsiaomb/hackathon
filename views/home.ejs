@@ -29,6 +29,13 @@
           		</select>
           		<input type="submit" value="Get Faceholder"> 
           	</form>
+            <% if (messages) { %>
+              <p>
+              <% messages.forEach(function(message) { %>
+                <%= message.msg %>
+              <% }); %>
+              </p>
+            <% } %>
         </p>
         <h4>Effect Preview:</h4>
         <img id="preview" src="css/images/effects/image-default.jpeg"></img>
