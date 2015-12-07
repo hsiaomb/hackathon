@@ -23,10 +23,14 @@ app.get('/', function(req, res) {
 
 });
 
-app.get('/:width/:height', function (req, res){
+app.get('/:width/:height/:effect', function (req, res){
 	var width = parseInt(req.params.width)
 	var height = parseInt(req.params.height)
+	var effect =
+		if(req.params.effect = 'blur'){
+			return gm(randomImage).blur(30,20)
 
+	}
 	var allImages = [];
 	for (var i = 0; i < 158; i++) {
 		allImages.push('./css/images/img-' + i + ".jpg")
