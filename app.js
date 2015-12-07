@@ -22,9 +22,13 @@ app.get('/:width/:height', function (req, res){
 
 	var allImages = [];
 	for (var i = 0; i < 157; i++) {
-		allImages.push('/css/images/img-'+i+".jpg")
+		allImages.push('/css/images/img-' + i + ".jpg")
 	};
-	
+
+	var randomImage = allImages[Math.floor(Math.random()*allImages.length)];
+
+	console.log(randomImage);
+
 });
 
 
