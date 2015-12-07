@@ -6,7 +6,8 @@ var fs = require('fs');
 var http = require('http');
 var gm = require('gm').subClass({imageMagick: true});
 
-
+var util = require('util');
+var expressValidator = require('express-validator');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
