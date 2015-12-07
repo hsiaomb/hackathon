@@ -120,8 +120,21 @@ app.get('/:width/:height/:effect', function (req, res){
 });
 
 app.post('/face', function(req, res){
-  req.assert('width', 'Invalid width').notEmpty()
-  req.assert('height', 'Invalid height').notEmpty()
+  req.Validator
+    .validate('width', {
+      length: {
+        min: 1,
+        max: 4
+      }
+    })
+    .validate('height', {
+      length: {
+        min: 1,
+        max: 4
+      }
+    })
+
+
 	res.redirect('/' + req.body.width + '/' + req.body.height + '/' + req.body.effect)
 });
 
