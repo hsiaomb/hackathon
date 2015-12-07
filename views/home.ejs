@@ -21,17 +21,18 @@ A quick and simple image placeholder service.
 		<input type="text" name="width" placeholder="Width">
 		<label for="height">
 		<input type="text" name="height" placeholder="Height">
-		<select name="recipe-serves" id = "recipe-serves">
-		 <option value="" disabled="disabled" selected="selected">Choose your option</option>
-		 <option value="1">1</option>
-		 <option value="2">2</option>
-		 <option value="3">3</option>
-		 <option value="4">4</option>
-		 <option value="5">5</option>
+		<select name="recipe-serves" id="recipe-serves">
+			 <option disabled="disabled" selected="selected">Choose your option</option>
+			 <option value="blur">Blur</option>
+			 <option value="pinkify">Pinkify</option>
+			 <option value="sepia">Sepia</option>
+			 <option value="negative">Negative</option>
+			 <option value="implode">Implode</option>
+		</select>
 		<input type="submit" value="Get Faceholder"> 
 	</form>
 
-	<div>
+	<div id="preview">
 		<img src="http://localhost:3000/200/200">
 	</div>
 
