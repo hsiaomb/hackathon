@@ -27,11 +27,7 @@ app.get('/', function(req, res) {
 app.get('/:width/:height/', function (req, res){
 	var width = parseInt(req.params.width)
 	var height = parseInt(req.params.height)
-	var effect = function(){
-		if(req.params.effect === 'blur'){
-			 return '.blur(30,20)'
-	}
-	}
+  
 	var allImages = [];
 	for (var i = 0; i < 168; i++) {
 		allImages.push('./css/images/img-' + i + ".jpg")
