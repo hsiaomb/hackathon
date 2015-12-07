@@ -31,8 +31,6 @@ app.get('/:width/:height/', function (req, res){
 			 return '.blur(30,20)'
 	}
 	}
-	console.log(req.params.effect === 'blur')
-	console.log(effect)
 	var allImages = [];
 	for (var i = 0; i < 158; i++) {
 		allImages.push('./css/images/img-' + i + ".jpg")
@@ -115,13 +113,13 @@ app.get('/:width/:height/:effect', function (req, res){
 	      stdout.pipe(res);
 	  });
 } else if (effect === 'default'){
-	res.redirect('/:width/:height')
+	res.redirect('/' + width + '/' + height)
 }
 
 });
 
 app.post('/face', function(req, res){
-	res.redirect('/' + req.body.width + '/' + req.body.height)
+	res.redirect('/' + req.body.width + '/' + req.body.height + '/' + req.body.effect)
 });
 
 app.listen(process.env.PORT || 3000 )
