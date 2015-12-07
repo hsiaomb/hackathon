@@ -63,17 +63,6 @@ app.get('/:width/:height/:effect', function (req, res){
 
   res.set('Content-Type', 'image/jpeg');
 
-  switch(expression) {
-      case n:
-          code block
-          break;
-      case n:
-          code block
-          break;
-      default:
-          default res.redirect('/' + width + '/' + height)
-  }
-
   switch(effect) {
     case 'blur':
       gm(randomImage)
@@ -98,7 +87,7 @@ app.get('/:width/:height/:effect', function (req, res){
       });
       break
     default:
-        default res.redirect('/' + width + '/' + height)
+      res.redirect('/' + width + '/' + height)
   }
 
 
