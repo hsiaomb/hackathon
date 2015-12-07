@@ -23,17 +23,19 @@ app.get('/', function(req, res) {
 });
 
 app.get('/:width/:height', function (req, res){
+	var width = parseInt(req.params.width)
+	var height = parseInt(req.params.height)
 
 	var allImages = [];
-	for (var i = 0; i < 157; i++) {
-		allImages.push('/css/images/img-' + i + ".jpg")
+	for (var i = 0; i < 158; i++) {
+		allImages.push('./css/images/img-' + i + ".jpg")
 	};
 
 	var randomImage = allImages[Math.floor(Math.random()*allImages.length)];
 
-	fs.createReadStream
-
-	console.log(randomImage);
+	var img = fs.readFileSync(randomImage);
+	res.writeHead(200, {'Content-Type': 'image/jpg' });
+	res.end(img, 'binary');
 
 });
 
