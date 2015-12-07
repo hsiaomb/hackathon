@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-  <link rel="stylesheet" type="text/css" href="/style.css">
-  <title>General Facessembly</title>
+	<title>General Facessembly</title>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+	<script type="text/javascript" src="/js/preview.js"></script>
 </head>
 <body class="page-homepage template-homepage section-homepage environment-live">
   <div id="container">
@@ -13,8 +14,25 @@
           <h1>General Facessembly</h1>
         </header>
         <p title="It fits a gap in the market">
-          <strong>A fun and personable image placeholder application.</strong>
-          <strong>Plug your programming peers as your personalised placeholder alternative.</strong>
+          <form action="/face" method="POST">
+          		<label for="width">
+          		<input type="text" name="width" placeholder="Width">
+          		<label for="height">
+          		<input type="text" name="height" placeholder="Height">
+          		<select name="recipe-serves" id="recipe-serves">
+          			 <option disabled="disabled" selected="selected">Choose your option</option>
+          			 <option value="blur">Blur</option>
+          			 <option value="pinkify">Pinkify</option>
+          			 <option value="sepia">Sepia</option>
+          			 <option value="negative">Negative</option>
+          			 <option value="implode">Implode</option>
+          		</select>
+          		<input type="submit" value="Get Faceholder"> 
+          	</form>
+
+          	<div id="preview">
+          		<img src="http://localhost:3000/200/200">
+          	</div>
         </p>
         <image id="image-0" src="images/img-125.jpg"></image>
       </div>
@@ -35,7 +53,6 @@
 
       <p>HELLO WORLD</p>
     </footer>
-
   </div>
 
   </body>
