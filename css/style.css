@@ -63,11 +63,6 @@ header {
   width: 408px;
   float: left;
 }
-header h1 {
-  margin: 0 0 36px 0;
-  color: #999;
-  font: normal normal 5em Baskerville, Palatino, "Book Antiqua", serif;
-}
 #unit-faces-content {
   width: 400px;
   padding-right: 8px;
