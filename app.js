@@ -135,11 +135,8 @@ app.post('/face', function(req, res){
   }
   else {
     // console.log(errors)
-    res.render('home')
+    res.redirect('/')
   }
-
-
-
 
 });
 
