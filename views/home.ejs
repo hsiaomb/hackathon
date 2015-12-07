@@ -2,9 +2,9 @@
 <html>
 <head>
 	<title>General Facessembly</title>
-	<link rel="stylesheet" type="text/css" href="/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
-	<script type="text/javascript" src="/js/preview.js"></script>
+	<script type="text/javascript" src="js/preview.js"></script>
 </head>
 <body class="page-homepage template-homepage section-homepage environment-live">
   <div id="container">
@@ -13,12 +13,11 @@
         <header id="header">
           <h1>General Facessembly</h1>
         </header>
-        <p title="It fits a gap in the market">
+        <p>
           <form action="/face" method="POST">
-          		<label for="width">
           		<input type="text" name="width" placeholder="Width">
-          		<label for="height">
           		<input type="text" name="height" placeholder="Height">
+          		<label for="effect">Effect: </label>
           		<select name="effect" id="selected-effect">
           			 <option selected="selected" value="default">Default</option>
           			 <option value="blur">Blur</option>
@@ -30,16 +29,17 @@
           		<input type="submit" value="Get Faceholder"> 
           	</form>
         </p>
-        <image id="preview" src="images/effects/image-default.jpeg"></image>
+        <h4>Effect Preview:</h4>
+        <img id="preview" src="css/images/effects/image-default.jpeg"></img>
       </div>
       <div id="unit-many-many-pictures-of-small-faces" class="unit">
-        <image id="image-1" src="images/img-81.jpg"></image>
-        <image id="image-2" src="images/img-76.jpg"></image>
-        <image id="image-3" src="images/img-58.jpg"></image>
-        <image id="image-4" src="images/img-45.jpg"></image>
-        <image id="image-5" src="images/img-34.jpg"></image>
-        <image id="image-6" src="images/img-17.jpg"></image>
-        <image id="image-7" src="images/img-103.jpg"></image>
+        <img id="image-1" src="css/images/img-81.jpg">
+        <img id="image-2" src="css/images/img-76.jpg">
+        <img id="image-3" src="css/images/img-100.jpg">
+        <img id="image-4" src="css/images/img-45.jpg">
+        <img id="image-5" src="css/images/img-34.jpg">
+        <img id="image-6" src="css/images/img-17.jpg">
+        <img id="image-7" src="css/images/img-103.jpg">
       </div>
     </div>
 
@@ -47,7 +47,7 @@
 
     <footer id="footer" role="content-info">
 
-      <p>HELLO WORLD</p>
+      <p>Created by </p>
     </footer>
   </div>
 
