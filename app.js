@@ -34,11 +34,12 @@ app.get('/:width/:height', function (req, res){
 
 	var randomImage = allImages[Math.floor(Math.random()*allImages.length)];
 
-	var readImage = fs.createReadStream(randomImage);
-  gm(readImage)
-  .resize(width, height, '^')
-  .stream(function (err, stdout, stderr) {
-    var writeStream = fs.createWriteStream('./css/gm'+width+'x'+height+'.jpg' );
+	gm('./css/images/img-1.jpg')
+    .resize(50,50)
+    .stream(function streamOut (err, stdout, stderr) {
+      if (err) return next(err);
+      stdout.pipe(res);
+      stdout.on('error', next);
   });
 
 });
