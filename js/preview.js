@@ -1,8 +1,8 @@
 $(function() {
-  $("#recipe-serves").change(function() {
+  $("#selected-effect").change(function() {
     console.log('click')
-    var effect = $('#recipe-serves').val()
-    $('#preview').html( '<img src="http://localhost:3000/200/200/'+ effect +'">');
+    var effect = $('#selected-effect').val()
+    $('#preview').html( '<img src="http://localhost:3000/408/207/'+ effect +'">');
   })
 });
 
