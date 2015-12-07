@@ -6,9 +6,6 @@ var fs = require('fs');
 var http = require('http');
 var gm = require('gm').subClass({imageMagick: true});
 
-var util = require('util');
-var expressValidator = require('express-validator');
-
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('port', process.env.PORT || 3000);
@@ -116,6 +113,8 @@ app.get('/:width/:height/:effect', function (req, res){
 });
 
 app.post('/face', function(req, res){
+  req.assert('width', 'Invalid width').notEmpty()
+  req.assert('height', 'Invalid height').notEmpty()
 	res.redirect('/' + req.body.width + '/' + req.body.height + '/' + req.body.effect)
 });
 
