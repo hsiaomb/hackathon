@@ -14,13 +14,19 @@ app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res) {
 
-  res.render('home')
+	res.render('home')
 
 });
 
-var allImages = [];
-for (var i = 0; i < 157; i++) {
-  allImages.push('/css/images/img-'+i+".jpg")
-};
+app.get('/:width/:height', function (req, res){
+
+	var allImages = [];
+	for (var i = 0; i < 157; i++) {
+		allImages.push('/css/images/img-'+i+".jpg")
+	};
+	
+});
+
+
 
 app.listen(process.env.PORT || 3000 )
