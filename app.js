@@ -36,9 +36,9 @@ app.get('/:width/:height', function (req, res){
 
 	var readImage = fs.createReadStream(randomImage);
   gm(readImage)
-  .resize('200', '200', '^')
+  .resize(width, height, '^')
   .stream(function (err, stdout, stderr) {
-    var writeStream = fs.createWriteStream('./css/img-gm-2.jpg' );
+    var writeStream = fs.createWriteStream('./css/gm'+width+'x'+height+'.jpg' );
   });
 
 });
