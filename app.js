@@ -48,7 +48,7 @@ app.get('/:width/:height', function (req, res){
 });
 
 app.post('/face', function(req, res){
-	console.log(req.body)
+	res.redirect('/' + req.body.width + '/' + req.body.height)
 });
 
 app.listen(process.env.PORT || 3000 )
