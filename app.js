@@ -114,6 +114,8 @@ app.get('/:width/:height/:effect', function (req, res){
 	      if (err) return next(err);
 	      stdout.pipe(res);
 	  });
+} else if (effect === 'default'){
+	res.redirect('/:width/:height')
 }
 
 });
