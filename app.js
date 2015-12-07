@@ -6,14 +6,11 @@ var fs = require('fs');
 var http = require('http');
 var gm = require('gm').subClass({imageMagick: true});
 
-var validate = require('form-validate');
+var expressValidator = require('express-validator');
 
 app.use(bodyParser.urlencoded({ extended: true }));
-
 //validation
-var validationConfig = {
-};
-app.use(validate(app, validationConfig));
+app.use(expressValidator());
 
 app.set('port', process.env.PORT || 3000);
 app.set('views');
@@ -120,28 +117,16 @@ app.get('/:width/:height/:effect', function (req, res){
 });
 
 app.post('/face', function(req, res){
-  req.Validator
-    .validate('width', {
-      length: {
-        min: 1,
-        max: 4
-      }
-    })
-    .validate('height', {
-      length: {
-        min: 1,
-        max: 4
-      }
-    })
 
-  if () {
-    req.Validator.getErrors(function(errors){
-      console.log(errors)
-    });
-  }
-  else {
+  var errors = req.validationErrors();
+  req.assert('width', 'Width is required').notEmpty();
+
+  console.log(errors)
+
+  if( !errors){
     res.redirect('/' + req.body.width + '/' + req.body.height + '/' + req.body.effect)
   }
+
 
 
 
