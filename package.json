@@ -1,0 +1,21 @@
+{
+  "name": "general-facessembly",
+  "version": "1.0.0",
+  "description": "Hackathon",
+  "main": "app.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hsiaomb/hackathon.git"
+  },
+  "author": "Michael Hsiao, Panos Palos, Ben Alun-Jones, Jake Fleming",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hsiaomb/hackathon/issues"
+  },
+  "homepage": "https://github.com/hsiaomb/hackathon#readme"
+}
