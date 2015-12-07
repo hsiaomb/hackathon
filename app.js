@@ -19,7 +19,7 @@ app.get('/', function(req, res) {
 });
 
 var allImages = [];
-for (var i = 0; i < 157; i++) {
+for (var i = 0; i < 158; i++) {
   allImages.push('/css/images/img-'+i)
 };
 
