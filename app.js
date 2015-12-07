@@ -32,7 +32,7 @@ app.get('/:width/:height/', function (req, res){
 	}
 	}
 	var allImages = [];
-	for (var i = 0; i < 158; i++) {
+	for (var i = 0; i < 168; i++) {
 		allImages.push('./css/images/img-' + i + ".jpg")
 	};
 
@@ -55,7 +55,7 @@ app.get('/:width/:height/:effect', function (req, res){
 	var height = parseInt(req.params.height)
 	var effect = req.params.effect
 	var allImages = [];
-	for (var i = 0; i < 158; i++) {
+	for (var i = 0; i < 168; i++) {
 		allImages.push('./css/images/img-' + i + ".jpg")
 	};
 
