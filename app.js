@@ -6,7 +6,14 @@ var fs = require('fs');
 var http = require('http');
 var gm = require('gm').subClass({imageMagick: true});
 
+var validate = require('form-validate');
+
 app.use(bodyParser.urlencoded({ extended: true }));
+
+//validation
+var validationConfig = {
+};
+app.use(validate(app, validationConfig));
 
 app.set('port', process.env.PORT || 3000);
 app.set('views');
