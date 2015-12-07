@@ -80,6 +80,7 @@ header h1 {
   bottom: 0;
   height: 287px;
   width: 408px;
+  object-fit: cover;
 }
 #unit-faces-content p:nth-child(3) {
   padding: 8px 16px;
@@ -124,10 +125,12 @@ header h1 {
 #image-2 {
   width: 200px;
   height: 140px;
+  object-fit: cover;
 }
 #image-3 {
   width: 200px;
   height: 140px;
+  object-fit: cover;
 }
 
 #image-4 {
@@ -135,10 +138,12 @@ header h1 {
   width: 200px;
   height: 286px;
 }
+
 #image-5 {
   margin-left: 8px;
   width: 96px;
   height: 140px;
+  
 }
 #image-6 {
   margin-left: 8px;
@@ -151,6 +156,7 @@ header h1 {
   height: 138px;
   width: 200px;
   margin: 0;
+  object-fit: cover;
 }
 #footer {
   font-size: 85.714%; /* 12px */
