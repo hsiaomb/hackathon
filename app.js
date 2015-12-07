@@ -118,13 +118,17 @@ app.get('/:width/:height/:effect', function (req, res){
 
 app.post('/face', function(req, res){
 
-  var errors = req.validationErrors();
   req.assert('width', 'Width is required').notEmpty();
+  req.assert('height', 'Height is required').notEmpty();
 
-  console.log(errors)
+  var errors = req.validationErrors();
 
   if( !errors){
     res.redirect('/' + req.body.width + '/' + req.body.height + '/' + req.body.effect)
+  }
+  else {
+    console.log(errors)
+    res.render('home')
   }
 
 
