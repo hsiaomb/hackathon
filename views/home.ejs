@@ -15,11 +15,6 @@
           <h4>A free & simple placeholder image service.</h4>
         </header>
         <p>
-          <% if (messages) { %>
-            <% messages.forEach(function(message) { %>
-              <%= message.msg %>
-            <% }); %>
-          <% } %>
           <form action="/face" method="POST">
           		<input type="text" name="width" placeholder="Width">
           		<input type="text" name="height" placeholder="Height">
@@ -34,6 +29,13 @@
           		</select>
           		<input type="submit" value="Get Faceholder"> 
           	</form>
+            <% if (messages) { %>
+              <p>
+              <% messages.forEach(function(message) { %>
+                <%= message.msg %>
+              <% }); %>
+              </p>
+            <% } %>
         </p>
         <h4>Effect Preview:</h4>
         <img id="preview" src="css/images/effects/image-default.jpeg"></img>
