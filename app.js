@@ -6,9 +6,11 @@ var fs = require('fs');
 var http = require('http');
 var gm = require('gm').subClass({imageMagick: true});
 
-
+var expressValidator = require('express-validator');
 
 app.use(bodyParser.urlencoded({ extended: true }));
+//validation
+app.use(expressValidator());
 
 app.set('port', process.env.PORT || 3000);
 app.set('views');
@@ -26,11 +28,7 @@ app.get('/', function(req, res) {
 app.get('/:width/:height/', function (req, res){
 	var width = parseInt(req.params.width)
 	var height = parseInt(req.params.height)
-	var effect = function(){
-		if(req.params.effect === 'blur'){
-			 return '.blur(30,20)'
-	}
-	}
+  
 	var allImages = [];
 	for (var i = 0; i < 168; i++) {
 		allImages.push('./css/images/img-' + i + ".jpg")
@@ -123,11 +121,26 @@ app.get('/:width/:height/:effect', function (req, res){
       res.redirect('/' + width + '/' + height)
   }
 
-
 });
 
 app.post('/face', function(req, res){
-	res.redirect('/' + req.body.width + '/' + req.body.height + '/' + req.body.effect)
+
+  req.assert('width', 'Width is required').notEmpty();
+  req.assert('height', 'Height is required').notEmpty();
+
+  var errors = req.validationErrors();
+
+  if( !errors){
+    res.redirect('/' + req.body.width + '/' + req.body.height + '/' + req.body.effect)
+  }
+  else {
+    // console.log(errors)
+    res.render('home')
+  }
+
+
+
+
 });
 
 app.listen(process.env.PORT || 3000 )
