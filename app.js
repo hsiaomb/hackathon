@@ -20,7 +20,7 @@ app.get('/', function(req, res) {
 
 var allImages = [];
 for (var i = 0; i < 157; i++) {
-  allImages.push('/css/images/img-'+i)
+  allImages.push('/css/images/img-'+i+".jpg")
 };
 
 app.listen(process.env.PORT || 3000 )
