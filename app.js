@@ -4,6 +4,7 @@ var ejs = require('ejs');
 var bodyParser = require('body-parser');
 var fs = require('fs');
 var http = require('http');
+var gm = require('gm').subClass({imageMagick: true});
 
 
 
@@ -34,6 +35,7 @@ app.get('/:width/:height', function (req, res){
 	var randomImage = allImages[Math.floor(Math.random()*allImages.length)];
 
 	var img = fs.readFileSync(randomImage);
+	gm(img).resize(width, height)
 	res.writeHead(200, {'Content-Type': 'image/jpg' });
 	res.end(img, 'binary');
 
