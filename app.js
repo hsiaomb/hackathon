@@ -3,6 +3,9 @@ var app = express();
 var ejs = require('ejs');
 var bodyParser = require('body-parser');
 var fs = require('fs');
+var http = require('http');
+
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -27,6 +30,8 @@ app.get('/:width/:height', function (req, res){
 	};
 
 	var randomImage = allImages[Math.floor(Math.random()*allImages.length)];
+
+	fs.createReadStream
 
 	console.log(randomImage);
 
