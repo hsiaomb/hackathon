@@ -14,7 +14,7 @@ app.set('port', process.env.PORT || 3000);
 app.set('views');
 app.engine('ejs', require('ejs').renderFile);
 app.set('view engine', 'ejs');
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/css'));
 
 
 app.get('/', function(req, res) {
