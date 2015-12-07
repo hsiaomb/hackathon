@@ -23,14 +23,16 @@ app.get('/', function(req, res) {
 
 });
 
-app.get('/:width/:height/:effect', function (req, res){
+app.get('/:width/:height/', function (req, res){
 	var width = parseInt(req.params.width)
 	var height = parseInt(req.params.height)
-	var effect =
-		if(req.params.effect = 'blur'){
-			return gm(randomImage).blur(30,20)
-
+	var effect = function(){
+		if(req.params.effect === 'blur'){
+			 return '.blur(30,20)'
 	}
+	}
+	console.log(req.params.effect === 'blur')
+	console.log(effect)
 	var allImages = [];
 	for (var i = 0; i < 158; i++) {
 		allImages.push('./css/images/img-' + i + ".jpg")
@@ -39,7 +41,6 @@ app.get('/:width/:height/:effect', function (req, res){
 	var randomImage = allImages[Math.floor(Math.random()*allImages.length)];
 
   res.set('Content-Type', 'image/jpeg');
-
 	gm(randomImage)
     .resize(width, height, '^')
     .gravity('Center')
@@ -48,6 +49,72 @@ app.get('/:width/:height/:effect', function (req, res){
       if (err) return next(err);
       stdout.pipe(res);
   });
+
+});
+
+app.get('/:width/:height/:effect', function (req, res){
+	var width = parseInt(req.params.width)
+	var height = parseInt(req.params.height)
+	var effect = req.params.effect
+	var allImages = [];
+	for (var i = 0; i < 158; i++) {
+		allImages.push('./css/images/img-' + i + ".jpg")
+	};
+
+	var randomImage = allImages[Math.floor(Math.random()*allImages.length)];
+
+  res.set('Content-Type', 'image/jpeg');
+  if(effect === 'blur'){
+	gm(randomImage)
+    .resize(width, height, '^')
+    .gravity('Center')
+    .crop(width, height)
+    .blur(30,5)
+    .stream(function streamOut (err, stdout, stderr) {
+      if (err) return next(err);
+      stdout.pipe(res);
+  });
+ } else if (effect === 'pinkify'){
+ 		gm(randomImage)
+ 	    .resize(width, height, '^')
+ 	    .gravity('Center')
+ 	    .crop(width, height)
+ 	    .colorize(112, 66, 20)
+ 	    .stream(function streamOut (err, stdout, stderr) {
+ 	      if (err) return next(err);
+ 	      stdout.pipe(res);
+ 	  });
+ } else if (effect === 'sepia'){
+ 		gm(randomImage)
+ 	    .resize(width, height, '^')
+ 	    .gravity('Center')
+ 	    .crop(width, height)
+ 	    .sepia()
+ 	    .stream(function streamOut (err, stdout, stderr) {
+ 	      if (err) return next(err);
+ 	      stdout.pipe(res);
+ 	  });
+ } else if (effect === 'negative'){
+ 	gm(randomImage)
+     .resize(width, height, '^')
+     .gravity('Center')
+     .crop(width, height)
+     .negative()
+     .stream(function streamOut (err, stdout, stderr) {
+       if (err) return next(err);
+       stdout.pipe(res);
+   });
+} else if (effect === 'implode'){
+		gm(randomImage)
+	    .resize(width, height, '^')
+	    .gravity('Center')
+	    .crop(width, height)
+	    .implode(0.5)
+	    .stream(function streamOut (err, stdout, stderr) {
+	      if (err) return next(err);
+	      stdout.pipe(res);
+	  });
+}
 
 });
 
