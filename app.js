@@ -34,10 +34,18 @@ app.get('/:width/:height', function (req, res){
 
 	var randomImage = allImages[Math.floor(Math.random()*allImages.length)];
 
-	var img = fs.readFileSync(randomImage);
-	gm(img).resize(width, height)
-	res.writeHead(200, {'Content-Type': 'image/jpg' });
-	res.end(img, 'binary');
+	var readImage = fs.readFileSync(randomImage);
+  console.log(readImage)
+	// gm(img).resize(10, 10).crop(10, 10)
+	// res.writeHead(200, {'Content-Type': 'image/jpg' });
+	// res.end(img, 'binary');
+
+  gm(readImage)
+  .resize('200', '200')
+  .stream(function (err, stdout, stderr) {
+    var writeStream = fs.createWriteStream('/');
+    stdout.pipe(writeStream);
+  });
 
 });
 
