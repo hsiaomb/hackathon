@@ -14,11 +14,11 @@ A quick and simple image placeholder service.
 	Just specify the width + height of the size of the image that you need after our URL and you'll receive a placeholder image.
 	<b>http://OURLINK.herokuapp.com/200/300</b> OR
 	<b>http://OURLINK.herokuapp.com/*WIDTH*/*HEIGHT*</b>
-	<form>
+	<form action="/:width/:height" method="POST">
 		<label for="width">
-		<input type="text" placeholder="Width">
+		<input type="text" name="width" placeholder="Width">
 		<label for="height">
-		<input type="text" placeholder="Height">
+		<input type="text" name="height" placeholder="Height">
 		<input type="submit" value="Get Faceholder"> 
 	</form>
 

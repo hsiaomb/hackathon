@@ -47,4 +47,8 @@ app.get('/:width/:height', function (req, res){
 
 });
 
+app.post('/:width/height', function(req, res){
+	console.log(req.body)
+})
+
 app.listen(process.env.PORT || 3000 )
