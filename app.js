@@ -21,7 +21,7 @@ app.use(express.static(__dirname + '/'));
 
 app.get('/', function(req, res) {
 
-	res.render('home')
+	res.render('home', {messages: ''})
 
 });
 
@@ -134,8 +134,8 @@ app.post('/face', function(req, res){
     res.redirect('/' + req.body.width + '/' + req.body.height + '/' + req.body.effect)
   }
   else {
-    // console.log(errors)
-    res.redirect('/')
+    console.log(errors)
+    res.render('home', {messages: errors})
   }
 
 });
