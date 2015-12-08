@@ -125,8 +125,8 @@ app.get('/:width/:height/:effect', function (req, res){
 
 app.post('/face', function(req, res){
 
-  req.assert('width', 'Width is required').notEmpty();
-  req.assert('height', 'Height is required').notEmpty();
+  req.assert('width', 'Width is required.').notEmpty();
+  req.assert('height', 'Height is required.').notEmpty();
 
   var errors = req.validationErrors();
 
